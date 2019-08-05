@@ -1,0 +1,90 @@
+.mt30{margin-top: 30px}
+#login-page{
+    background: url(../img/mountains-city.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+}
+
+.admin-logo{ width: 60px; padding: 10px}
+
+#login-page{color: white}
+.search-table{background-color: white;}
+.video-thumb{
+    background-color: #ccc;
+    height: 200px;
+    text-align: center;
+    padding-top: 50px;
+}
+.video-thumb i{font-size: 95px}
+i.green{font-color:green}
+i.red{font-color:red}
+
+#image-preview {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  background: url('../img/user.png') no-repeat;
+  background-size: 200px 200px;
+  color: #ecf0f1;
+}
+#image-preview input {
+  line-height: 200px;
+  font-size: 200px;
+  position: absolute;
+  opacity: 0;
+  z-index: 10;
+}
+#image-preview label {
+  position: absolute;
+  z-index: 5;
+  opacity: 0.8;
+  cursor: pointer;
+  background-color: #bdc3c7;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  line-height: 50px;
+  text-transform: uppercase;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.bg-falls{
+    
+}
+.company-header{
+    background-image: url(../img/iguazu.jpg);
+    background-position: center center;
+    background-size: 100% 80%;
+    background-repeat: no-repeat;
+    margin-top: -30px; 
+    height: 300px;
+    padding-top: 100px;
+    padding-left: 40px;
+}
+.company-header-logout{
+    position: absolute;
+    right:15px;
+    top:15px;
+    color: white;
+    font-size: 18px;
+    
+}
+.company-logo{
+    padding: 5px;
+    border-radius: 3px;
+    background-color: white;
+    border: 3px solid #ddd;
+    height: 200px;
+    width: 200px;
+    
+}
+
