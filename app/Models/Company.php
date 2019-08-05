@@ -25,8 +25,7 @@ class Company extends Model
         'address',
         'website',
         'user_id',
-        'active',
-        'contact_email'
+        'active'
     ];
 
     /**
@@ -44,8 +43,7 @@ class Company extends Model
         'address' => 'string',
         'user_id' => 'integer',
         'website' => 'string',
-        'active' => 'integer',
-        'contact_email' => 'integer'
+        'active' => 'integer'
     ];
 
     /**

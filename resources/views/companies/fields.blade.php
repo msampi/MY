@@ -42,11 +42,7 @@
         {!! Form::label('contact_last_name', 'Contact Last name:') !!}
         {!! Form::text('contact_last_name', (isset($company)) ? $company->user->last_name : '', ['class' => 'form-control']) !!}
     </div>
-    <div class="form-group col-sm-12">
-        {!! Form::label('contact_email', 'Contact this company by email in each video?:') !!}<br>
-        {{ Form::radio('contact_email', 1, true) }} <strong>Yes</strong> <br>
-        {{ Form::radio('contact_email', 0) }} <strong>No</strong>
-    </div>
+    
 </div>
 
 <div class="col-sm-3">
@@ -63,7 +59,6 @@
         {!! Form::label('active', 'Active:') !!}
         {!! Form::select('active', ['1' => 'Yes', '0' => 'No'])  !!} 
     </div>
-    
 </div>
 
 <div class="form-group col-sm-12">
