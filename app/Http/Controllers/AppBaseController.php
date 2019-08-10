@@ -38,7 +38,6 @@ class AppBaseController extends Controller
         $imageName = NULL;
         
         if ($request->file($field_name)) :
-            
             //$imageName = pathinfo($request->file($field_name)->getClientOriginalName(), PATHINFO_FILENAME);
             $imageName = $this->randomName(12).".".$request->file($field_name)->getClientOriginalExtension();
             $request->file($field_name)->move(base_path() . '/public/uploads/', $imageName);

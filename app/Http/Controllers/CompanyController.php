@@ -70,6 +70,7 @@ class CompanyController extends AppBaseController
         ]);
         
         $input['image'] = $this->uploadFile($request,'image');
+        $input['photo_bg'] = $this->uploadFile($request,'photo_bg');
         
         $company = $this->companyRepository->create($input);
 
@@ -190,6 +191,7 @@ class CompanyController extends AppBaseController
         $input = $request->all();
     
         $input['image'] = $this->uploadFile($request,'image');
+        $input['photo_bg'] = $this->uploadFile($request,'photo_bg');
         
         $company = $this->companyRepository->update($input, $id);
 

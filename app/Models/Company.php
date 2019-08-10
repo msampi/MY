@@ -26,7 +26,8 @@ class Company extends Model
         'website',
         'user_id',
         'active',
-        'contact_email'
+        'contact_email',
+        'photo_bg'
     ];
 
     /**
