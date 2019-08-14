@@ -46,7 +46,8 @@ class Company extends Model
         'user_id' => 'integer',
         'website' => 'string',
         'active' => 'integer',
-        'contact_email' => 'integer'
+        'contact_email' => 'integer',
+        'photo_bg' => 'string'
     ];
 
     /**
@@ -86,6 +87,11 @@ class Company extends Model
             if ($video->nameSlug() == $video_name)
                 return $video;
         return NULL;
+    }
+
+    public function getPhotoBgAttribute($value)
+    {
+        return ($value) ? $value : '../img/iguazu.jpg';
     }
 
     

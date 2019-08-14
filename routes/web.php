@@ -20,6 +20,7 @@ Route::post('contact', 'WebController@contact');
 Route::post('/investor-register', 'Auth\RegisterController@investorRegister');
 Route::get('/activateAccount/{email}/{token}', 'Auth\RegisterController@activate');
 Route::get('company/{company_name}/{video_name}/{email}', 'CompanyController@showVideoToInvestor');
+Route::post('company/contact', 'CompanyController@contactCompany');
 
 
 Route::get('/', function () {
@@ -32,7 +33,6 @@ Auth::routes();
 
 
 /* ADMIN */
-
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function()
 {

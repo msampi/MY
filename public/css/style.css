@@ -7,8 +7,28 @@
     background-size: cover;
     height: 100vh;
 }
-
 .admin-logo{ width: 60px; padding: 10px}
+.modal-body{overflow: auto}
+#success-message, #error-message{
+  text-align: center;
+  height: 400px; 
+  display:none
+}
+
+#error-message i{
+  margin-top: 110px;
+  font-size: 87px;
+  color: red;
+}
+#success-message i{
+  margin-top: 110px;
+  font-size: 87px;
+  color: green;
+}
+#success-message p, #error-message p{
+  margin-top:30px;
+  font-size: 18px;
+}
 
 #login-page{color: white}
 .search-table{background-color: white;}
@@ -93,4 +113,6 @@ i.red{font-color:red}
     width: 200px;
     
 }
+
+
 

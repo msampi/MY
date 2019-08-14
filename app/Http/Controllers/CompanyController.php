@@ -14,6 +14,7 @@ use App\Models\Video;
 use App\User;
 use Response;
 use Redirect;
+use Mail;
 
 class CompanyController extends AppBaseController
 {
@@ -38,6 +39,16 @@ class CompanyController extends AppBaseController
 
         return view('companies.index')
             ->with('companies', $companies);
+    }
+
+    public function contactCompany(Request $request){
+        
+        $send = Mail::send(['html' => 'emails.message'], [ 'msg' => $request->get('message'), 'name' => $request->get('name'), 'email' => $request->get('email'), 'link' => '' ], function($message) use ($request) 
+            {
+                $message->from( 'info@magyates.com', 'Magyates' );
+                $message->to('matiassampietro@gmail.com', 'Matias Sampietro')->subject('You have a new message from Magyates website');
+
+            });   
     }
 
     /**

@@ -25,9 +25,57 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="background-color: #ffffff; margin-left: 0px !important;">
-        
+            <!-- Modal -->
+            <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModal" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div id="form-content">
+                    
+                      <div class="modal-body">
+                        <h3>Contact with {{$company->name}}</h3>
+                        <p>To get in contact with {{$company->name}} please provide this information: </p>
+                        <div class="form-group col-sm-12">
+                            {!! Form::label('name', 'Name:') !!}
+                            {!! Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Your name']) !!}
+                        </div>
+                        <div class="form-group col-sm-12">
+                            {!! Form::label('email', 'Email:') !!}
+                            {!! Form::text('email', '', ['class' => 'form-control', 'placeholder' => 'Your email']) !!}
+                        </div>
+                        <div class="form-group col-sm-12">
+                            {!! Form::label('message', 'Message:') !!}
+                            {!! Form::textarea('message', '', ['class' => 'form-control', 'placeholder' => 'Message']) !!}
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="send-button" type="button" class="btn btn-primary">Send</button>
+                      </div>
+                  </div>
+                  <div id="success-message">
+                    <div class="modal-body">
+                      <i class="fa fa-check"></i>
+                      <p>The message to {{$company->name}} has been sent successfully</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+                  <div id="error-message">
+                    <div class="modal-body">
+                      <i class="fa fa-close"></i>
+                      <p>An error has ocurred, please try again</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
             <div class="row">
-                <div class="company-header">
+                <div class="company-header" style="background-image:url({{ asset('uploads/'.$company->photo_bg )}})">
                     <div class="company-logo">
                         <img class="img-responsive" src="{{ asset('uploads/'.$company->user->image )}}">
                     </div>
@@ -42,6 +90,11 @@
                        <h3>{{ $company->country->name }}</h3>
                        <h4>{{ $company->sector }}</h4>
                        <h4>{{ $company->website }}</h4>
+                       <br>
+                       @if ($company->contact_email)
+                          <h3>Have some questions?</h3>
+                          <button id="contact-button" class="btn btn-primary">Get in touch with this company</button>
+                       @endif
                     </div>
                     <div class="col-sm-9">
                         @yield('content')
@@ -59,7 +112,9 @@
     <script src="{{ URL::asset('plugins/modal-video/js/modal-video.js') }}"></script>
     <script>
         
-        var BASE_URL = '{!! url('/') !!}';
+      var BASE_URL = '{!! url('/') !!}';
+
+      
       $(function () {
 
         $('.search-table').DataTable({
@@ -81,11 +136,42 @@
 
 
         });
-          
-        //$(".modal-video").modalVideo({channel:'vimeo'})
-          //$(".js-modal-btn").modalVideo({channel:'vimeo'})
 
+        $('#contact-button').click(function() {
+          $('#form-content').show();
+          $('#success-message').hide();
+          $('#error-message').hide();
+          $("#contactModal").modal('toggle');
           
+        });
+
+        $('#send-button').click(function() {
+            
+            $(this).html('<i class="fa fa-refresh fa-spin"></i> Sending...');
+            $(this).attr('disabled',true);
+            $.post("{!! URL::asset( 'company/contact' ) !!}",
+                    {
+                      _token: "{{ csrf_token() }}",
+                      name: $('#name').val(),
+                      email: $('#email').val(),
+                      message: $('#message').val()
+                    },
+                    (data, status) => {
+                      $(this).html('Send');
+                      $(this).removeAttr('disabled');
+                      if (status == 'success'){
+                        $('#form-content').hide();
+                        $('#success-message').show()
+                      }
+                      else{
+                        $('#form-content').hide();
+                        $('#error-message').show()
+                      }
+                      
+                    });
+
+        });
+              
       });
     </script>
 </body>
