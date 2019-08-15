@@ -25,6 +25,7 @@ class CompanyViewController extends Controller
     public function index()
     {
         $company = Auth::user()->company;
+        
 
         if (empty($company)) {
             abort('404');

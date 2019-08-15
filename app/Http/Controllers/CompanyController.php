@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Models\Country;
+use App\Models\Company;
 use App\Models\Video;
 use App\User;
 use Response;
@@ -43,10 +44,17 @@ class CompanyController extends AppBaseController
 
     public function contactCompany(Request $request){
         
-        $send = Mail::send(['html' => 'emails.message'], [ 'msg' => $request->get('message'), 'name' => $request->get('name'), 'email' => $request->get('email'), 'link' => '' ], function($message) use ($request) 
+        $company = Company::find($request->get('company_id'));
+        $company_email = $company->user->email;
+        $send = Mail::send(['html' => 'emails.message'], 
+                           [ 'msg' => $request->get('message'), 
+                             'name' => $request->get('name'), 
+                             'email' => $request->get('email'), 
+                             'title' => 'Investor Question',
+                             'link' => '' ], function($message) use ($request, $company_email) 
             {
                 $message->from( 'info@magyates.com', 'Magyates' );
-                $message->to('matiassampietro@gmail.com', 'Matias Sampietro')->subject('You have a new message from Magyates website');
+                $message->to($company_email, 'Matias Sampietro')->subject('You have a new message from Magyates website');
 
             });   
     }
@@ -137,11 +145,14 @@ class CompanyController extends AppBaseController
         }
     
 
-        return view('companies.showVideo')->with('company', $company)->with('video', $video);
+        return view('companies.showVideo')->with('company', $company)
+                                          ->with('video', $video)
+                                          ->with('question', true);
     }
     
     public function showVideoToInvestor($company_name, $video_name, $investor_email)
     {
+       
         $user = User::where('email',$investor_email)->first();
         $vname = str_replace('-',' ',$video_name);
         $video = Video::where('name',$vname)->first();

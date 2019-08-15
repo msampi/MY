@@ -89,12 +89,14 @@ i.red{font-color:red}
 .company-header{
     background-image: url(../img/iguazu.jpg);
     background-position: center center;
-    background-size: 100% 80%;
+    background-size: cover;
     background-repeat: no-repeat;
     margin-top: -30px; 
-    height: 300px;
+    height: 270px;
     padding-top: 100px;
     padding-left: 40px;
+    margin-bottom:40px;
+    border-bottom: 3px solid #ddd
 }
 .company-header-logout{
     position: absolute;
@@ -109,7 +111,7 @@ i.red{font-color:red}
     border-radius: 3px;
     background-color: white;
     border: 3px solid #ddd;
-    height: 200px;
+    height: auto;
     width: 200px;
     
 }

@@ -5,7 +5,11 @@
         <td>
             <!-- Greeting -->
             <h1>
-                Contact from website
+                @if (isset($title))
+                    {{ $title }}
+                @else
+                    Contact from website
+                @endif
             </h1>
 
         </td>

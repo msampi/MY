@@ -32,8 +32,8 @@
                   <div id="form-content">
                     
                       <div class="modal-body">
-                        <h3>Contact with {{$company->name}}</h3>
-                        <p>To get in contact with {{$company->name}} please provide this information: </p>
+                        <h3>Please ask your question through our secure portal</h3>
+                        <p>To get your questions directly to {{$company->name}} please provide your contact information: </p>
                         <div class="form-group col-sm-12">
                             {!! Form::label('name', 'Name:') !!}
                             {!! Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Your name']) !!}
@@ -91,9 +91,9 @@
                        <h4>{{ $company->sector }}</h4>
                        <h4>{{ $company->website }}</h4>
                        <br>
-                       @if ($company->contact_email)
-                          <h3>Have some questions?</h3>
-                          <button id="contact-button" class="btn btn-primary">Get in touch with this company</button>
+                       @if ($company->contact_email && isset($question))
+                          <h3>Do you have a question for the management?</h3>
+                          <button id="contact-button" class="btn btn-primary">Click here to ask your question</button>
                        @endif
                     </div>
                     <div class="col-sm-9">
@@ -152,6 +152,7 @@
             $.post("{!! URL::asset( 'company/contact' ) !!}",
                     {
                       _token: "{{ csrf_token() }}",
+                      company_id: "{{ $company->id }}",
                       name: $('#name').val(),
                       email: $('#email').val(),
                       message: $('#message').val()
