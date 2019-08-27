@@ -115,6 +115,34 @@ i.red{font-color:red}
     width: 200px;
     
 }
+.question-symbols{
+  text-align: center
+}
+.question-symbols i{
+  color:#dd4b39;
+  font-size:42px;
+  margin-right:20px;
+}
+.btn-round{
+  border-radius: 200px;
+  font-size: 24px;
+  font-weight: bold;
+  height:200px;
+  width:200px;
+}
+.question-button-container{
+  text-align: center;
+  margin-top:30px;
+}
+.envelope{
+  text-align: center
+}
+.envelope i{
+  color:#dd4b39;
+  font-size:152px;
+  cursor: pointer;
+}
+
 
 
 

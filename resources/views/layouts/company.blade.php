@@ -92,8 +92,14 @@
                        <h4>{{ $company->website }}</h4>
                        <br>
                        @if ($company->contact_email && isset($question))
+                          <div class="question-symbols">
+                            <i class="fa fa-question-circle"></i>
+                            <i class="fa fa-question-circle"></i> 
+                            <i class="fa fa-question-circle"></i>
+                          </div>
                           <h3>Do you have a question for the management?</h3>
-                          <button id="contact-button" class="btn btn-primary">Click here to ask your question</button>
+                          <!--<div class="question-button-container"><button id="contact-button" class="btn btn-danger btn-round">Ask<br> your <br>question</button></div>-->
+                          <div class="envelope"><i class="fa fa-envelope" id="contact-button"></i></div>
                        @endif
                     </div>
                     <div class="col-sm-9">
