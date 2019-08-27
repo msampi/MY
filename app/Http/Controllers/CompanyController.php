@@ -45,16 +45,15 @@ class CompanyController extends AppBaseController
     public function contactCompany(Request $request){
         
         $company = Company::find($request->get('company_id'));
-        $company_email = $company->user->email;
         $send = Mail::send(['html' => 'emails.message'], 
                            [ 'msg' => $request->get('message'), 
                              'name' => $request->get('name'), 
                              'email' => $request->get('email'), 
                              'title' => 'Investor Question',
-                             'link' => '' ], function($message) use ($request, $company_email) 
+                             'link' => '' ], function($message) use ($request, $company) 
             {
                 $message->from( 'info@magyates.com', 'Magyates' );
-                $message->to($company_email, 'Matias Sampietro')->subject('You have a new message from Magyates website');
+                $message->to($company->user->email, $company->user->name.' '.$company->user->last_name)->subject('You have a new message from Magyates website');
 
             });   
     }
