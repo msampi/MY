@@ -12,10 +12,10 @@
     <tbody>
     @foreach($investors as $investor)
         <tr>
-            <td>{!! $investor->user->name !!}</td>
-            <td>{!! $investor->user->last_name !!}</td>
-            <td>{!! $investor->user->email !!}</td>
-            <td>{!! $investor->country->name !!}</td>
+            <td>{!! $investor->user->name or '' !!}</td>
+            <td>{!! $investor->user->last_name or '' !!}</td>
+            <td>{!! $investor->user->email or '' !!}</td>
+            <td>{!! $investor->country->name or '' !!}</td>
             
             <td>
                 
@@ -33,10 +33,12 @@
                 @endif
             </td>
             <td>
-                @if ($investor->user->active) 
-                    <span class="label bg-green">ACTIVE</span>
-                @else
-                    <span class="label bg-red">NOT ACTIVE</span>
+                @if ($investor->user)
+                    @if ($investor->user->active) 
+                        <span class="label bg-green">ACTIVE</span>
+                    @else
+                        <span class="label bg-red">NOT ACTIVE</span>
+                    @endif
                 @endif
             </td>
             <td>

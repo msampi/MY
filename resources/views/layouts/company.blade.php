@@ -99,7 +99,10 @@
                           </div>
                           <h3>Do you have a question for the management?</h3>
                           <!--<div class="question-button-container"><button id="contact-button" class="btn btn-danger btn-round">Ask<br> your <br>question</button></div>-->
-                          <div class="envelope"><i class="fa fa-envelope" id="contact-button"></i></div>
+                          <div class="envelope">
+                            
+                            <i class="fa fa-envelope" id="contact-button"><div>Ask your question</div></i>
+                          </div>
                        @endif
                     </div>
                     <div class="col-sm-9">

@@ -2,15 +2,15 @@
 
 <div class="form-group col-sm-6">
     {!! Form::label('name', 'Name:') !!}
-    {!! Form::text('name', (isset($investor)) ? $investor->user->name : '', ['class' => 'form-control']) !!}
+    {!! Form::text('name', (isset($investor) && $investor->user) ? $investor->user->name : '', ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-6">
     {!! Form::label('last_name', 'Last Name:') !!}
-    {!! Form::text('last_name', (isset($investor)) ? $investor->user->last_name : '' , ['class' => 'form-control']) !!}
+    {!! Form::text('last_name', (isset($investor) && $investor->user) ? $investor->user->last_name : '' , ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-6">
     {!! Form::label('email', 'Email:') !!}
-    {!! Form::text('email', (isset($investor)) ? $investor->user->email : '' , ['class' => 'form-control']) !!}
+    {!! Form::text('email', (isset($investor) && $investor->user) ? $investor->user->email : '' , ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-6">
     {!! Form::label('company', 'Company:') !!}
