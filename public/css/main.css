@@ -856,17 +856,25 @@ a:after {
     background-image: url(../img/buenos-aires.jpg);
     background-size: cover;
     border: 1px solid white;
-    min-height: 325px;
-    max-height: 325px;
+    min-height: 350px;
+    max-height: 350px;
+}
+
+.video-iframe{
+    width: 100%;
+    min-height: 350px;
+    max-height: 350px;
+    border: none;
 }
 
 .saoPaulo{
     background-image: url(../img/SaoPaulo.jpg);
     background-size: cover;
     border: 1px solid white;
-    min-height: 325px;
-    max-height: 325px;
+    min-height: 400px;
+    max-height: 400px;
 }
+
 
 
  .mountain{
@@ -880,6 +888,34 @@ a:after {
     background-size: cover;
     min-height: 200px;
  }
+
+ 
+
+
+ @media (max-width: 1024px){
+    .buenosAires{
+        min-height: 280px;
+        max-height: 280px;
+     }
+     .video-iframe{
+        min-height: 280px;
+        max-height: 280px;
+    }
+}
+
+@media (max-width: 991px){
+    .video-iframe{
+        margin-top:20px;
+    }
+    .col-xs-12{
+        padding-right: 0;
+    }
+
+    .buenosAires{
+        min-height: 350px;
+        max-height: 350px;
+     }
+}
 
 @media (min-width: 768px){
 
@@ -893,14 +929,6 @@ a:after {
     background-image: url(../img/RioJaneiro.jpg);
     background-size: cover;
     min-height: 200px;
- }
-
- .buenosAires{
-    background-image: url(../img/buenos-aires.jpg);
-    background-size: cover;
-    border: 1px solid white;
-    min-height: 525px;
-    max-height: 525px;
  }
 
  .saoPaulo{
@@ -922,14 +950,6 @@ a:after {
     background-image: url(../img/RioJaneiro.jpg);
     background-size: cover;
     min-height: 400px;
- }
-
- .buenosAires{
-    background-image: url(../img/buenos-aires.jpg);
-    background-size: cover;
-    border: 1px solid white;
-    min-height: 525px;
-    max-height: 525px;
  }
 
  .saoPaulo{

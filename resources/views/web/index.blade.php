@@ -35,7 +35,8 @@
 				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 buenosAires">
 				</div>
 
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 saoPaulo">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<iframe class="video-iframe" src="https://player.vimeo.com/video/361685159?title=0&byline=0&autoplay=1&loop=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen ></iframe>
 				</div>
 			</div>
 		</section>
