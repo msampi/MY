@@ -351,6 +351,31 @@ a:after {
 	color: white;
 }
 
+.click-here-arrow{
+    color: #428bca; 
+    position:absolute; 
+    bottom:25px; left:11%; 
+    font-weight: bold;
+}
+
+@media (max-width: 1280px){
+    .click-here-arrow{
+        left:7%; 
+    }
+}
+
+@media (max-width: 1200px){
+    .click-here-arrow{
+        left:5%; 
+    }
+}
+
+@media (max-width: 1160px){
+    .click-here-arrow{
+        display:none
+    }
+}
+
 
 /* ==========================================================================
    Box Sections
@@ -878,8 +903,9 @@ a:after {
 
 
  .mountain{
-    background-image: url(../img/mountains-city.jpg);
+    background-image: url(../img/buenos-aires.jpg);
     background-size: cover;
+    background-position: center;
     min-height: 200px;
  }
 
@@ -920,8 +946,9 @@ a:after {
 @media (min-width: 768px){
 
  .mountain{
-    background-image: url(../img/mountains-city.jpg);
+    background-image: url(../img/buenos-aires.jpg);
     background-size: cover;
+    background-position: center;
     min-height: 200px;
  }
 
@@ -941,8 +968,9 @@ a:after {
 
 @media (min-width: 992px){
  .mountain{
-    background-image: url(../img/mountains-city.jpg);
+    background-image: url(../img/buenos-aires.jpg);
     background-size: cover;
+    background-position: center;
     min-height: 400px;
  }
 

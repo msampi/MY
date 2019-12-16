@@ -44,10 +44,11 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="{{ url('/#home') }}" class="smoothScroll">Home</a></li>
-            <li><a href="{{ url('/#why') }}" class="smoothScroll">Why MY</a></li>
+            <li><a href="{{ url('/#why') }}" class="smoothScroll">Who is MY</a></li>
             <li><a href="{{ url('/#whatwedo') }}" class="smoothScroll"> What we do</a></li>
             <li><a href="{{ url('/#about') }}" class="smoothScroll"> About</a></li>
             <li><a href="{{ url('/blog') }}"> MY Blog</a></li>
+            <li><a href="{{ url('/blog/videos') }}"> MY Videos</a></li>
             <li><a href="{{ url('/#contact') }}" class="smoothScroll"> Contact</a></li>
           </ul>
           

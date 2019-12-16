@@ -23,7 +23,7 @@
 		-->
 		<section class="textdivider" id="why">
 			<div class="container text-center">
-				<h1 class="black">WHY MY</h1>
+				<h1 class="black">WHO IS MY</h1>
 				<hr/>
 				<p class="black">Magellan Yates (MY) is the first and only global web-based video platform that delivers a direct connection between the buy-side Investor and companies they invest in, making the "art" of corporate access more efficient.</p>
 			</div>
@@ -31,12 +31,12 @@
 		
 		<section>
 			<div class="row">
-
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 buenosAires">
-				</div>
-
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-				<iframe class="video-iframe" src="https://player.vimeo.com/video/361685159?title=0&byline=0&autoplay=1&loop=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen ></iframe>
+				<!--<div class="col-xs-12 col-sm-12 col-md-3" style="padding-right:0; height:330px">
+					<span  style="color: #428bca; position:absolute; bottom:0; right:0; font-weight: bold">CLICK HERE TO PLAY VIDEO <i class="fa fa-arrow-right"></i></span>
+				</div>-->
+				<div class="col-xs-12 col-sm-12 col-md-12" style="text-align:center">
+				<span  class="click-here-arrow">CLICK HERE TO PLAY VIDEO <i class="fa fa-arrow-right"></i></span>
+					<iframe class="video-iframe" src="https://player.vimeo.com/video/361685159?title=0&byline=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen ></iframe>
 				</div>
 			</div>
 		</section>
