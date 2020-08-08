@@ -13,7 +13,7 @@ class Investor extends Model
 {
 
     public $table = 'investors';
-    
+
 
 
     public $fillable = [
@@ -43,18 +43,17 @@ class Investor extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
-    
+
     public function user()
     {
         return $this->belongsTo('App\User');
     }
-    
+
     public function country()
     {
         return $this->belongsTo('App\Models\Country');
     }
 
-    
 }

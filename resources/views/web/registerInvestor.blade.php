@@ -18,7 +18,7 @@
                     <h5><strong>Please read before answering</strong></h5>
                     <p class="black font16">A qualified institutional buyer (QIB), in United States law and finance, is a purchaser of securities that is deemed financially sophisticated and is legally recognized by securities market regulators to need less protection from issuers than most public investors. Typically, the qualifications for this designation are based on an investor's total assets under management and specific legal conditions in the country where the fund is located. Rule 144A requires an institution to manage at least $100 million in securities from issuers not affiliated with the institution to be considered a QIB. If the institution is a bank or savings and loans thrift they must have a net worth of at least $25 million. If the institution is a registered dealer acting for its own account it must in the aggregate own and invest on a discretionary basis at least $10 million of securities of issuers not affiliated with the dealer.</p>
                     <p class="black font16">The U.S. Securities and Exchange Commission (SEC) requires that an entity meet one of the following requirements to qualify as a QIB: Any of the following entities, acting for its own account or the accounts of other QIBs, that in the aggregate owns and invests on a discretionary basis at least $100 million in securities of issuers that are not affiliated with the entity: An insurance company An investment company registered under the Investment Company Act of 1940 A Small Business Investment Company licensed by the US Small Business Administration under the Small Business Investment Act of 1958 A plan established and maintained by a state, its political subdivisions, or state agency, for the benefit of its employees An employee benefit plan falling under the Employee Retirement Income Security Act of 1974 A trust fund whose trustee is a bank or trust company and whose participants are exclusively plans established for the benefit of state employees or employee benefit plans, except trust funds that include as participants individual retirement accounts or H.R. 10 plans A business development company as defined in section 202(a)(22) of the Investment Advisers Act of 1940. A 501(c)(3) charitable organization, corporation (other than a bank or a savings and loan association), partnership, or Massachusetts or similar business trust; and An investment adviser registered under the Investment Advisers Act of 1940. Any registered dealer, acting for its own account or the accounts of other QIBs, that in the aggregate owns and invests on a discretionary basis at least $10 million of securities of issuers that are not affiliated with the dealer. Any registered dealer acting in a riskless principal transaction on behalf of a qualified institutional buyer. Any investment company registered under the Investment Company Act, acting for its own account or for the accounts of other QIBs, that is part of a family of investment companies which own in the aggregate at least $100 million in securities of issuers, other than issuers that are affiliated with the investment company or are part of such family of investment companies. Any entity, all of the equity owners of which are QIBs, acting for its own account or the accounts of other QIBs. Any bank or any savings and loan association or other institution, acting for its own account or the accounts of other QIBs, that in the aggregate owns and invests on a discretionary basis at least $100 million in securities of issuers that are not affiliated with it and that has an audited net worth of at least $25 million as demonstrated in its latest annual financial statements, as of a date not more than 16 months preceding the date of sale under Rule 144A in the case of a US bank or savings and loan association, and not more than 18 months preceding the date of sale for a foreign bank or savings and loan association or equivalent institution</p>
-        
+
                 </div>
               </div>
               <div class="modal-footer">
@@ -33,7 +33,7 @@
                     <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
                     <strong>Registration succesfully!</strong> Enter your credentials to access to your dashboard.
                 </div>
-        @endif 
+        @endif
         <form id="register-form"  class="form-horizontal" role="form" method="POST" action="{{ url('investor-register') }}">
                 {{ csrf_field() }}
         <div class="col-md-6 register-form">
@@ -62,7 +62,7 @@
                     <div class="{{ $errors->has('company') ? ' has-error' : '' }}">
                         <label for="company">Company</label>
                         <input id="company" type="text" class="form-control" name="company" value="{{ old('company') }}" required>
-                        
+
                         @if ($errors->has('company'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('company') }}</strong>
@@ -70,7 +70,7 @@
                         @endif
 
                     </div>
-                
+
                     <div class="{{ $errors->has('country') ? ' has-error' : '' }}">
                         <label for="country">Country</label>
                         {!! Form::select('country', $countries, null, ['class' => 'form-control']); !!}
@@ -78,9 +78,9 @@
 
                     <div >
                         <label for="city" >City</label>
-                        <input id="city" type="text" class="form-control" name="city" required>   
+                        <input id="city" type="text" class="form-control" name="city" required>
                     </div>
-                    
+
                 </div>
                 <div class="col-md-6">
                     <div class="{{ $errors->has('last_name') ? ' has-error' : '' }}">
@@ -91,7 +91,7 @@
                                 <strong>{{ $errors->first('last_name') }}</strong>
                             </span>
                         @endif
-                       
+
                     </div>
 
                     <div class="{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -108,7 +108,7 @@
                             </span>
                         @endif
                     </div>
-                
+
                     <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
                         <label for="password">Password</label>
                         <input id="password" type="password" class="form-control" name="password" required>
@@ -117,15 +117,15 @@
                             <span class="help-block">
                                 <strong>{{ $errors->first('password') }}</strong>
                             </span>
-                        @endif    
+                        @endif
                     </div>
 
                     <div >
                         <label for="password-confirm" >Confirm Password</label>
-                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>   
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                     </div>
-                    
-                    
+
+
                 </div>
                 <div class="col-md-12">
                     <h4><strong>Preferences</strong></h4>
@@ -133,7 +133,7 @@
                         {!! Form::label('sectors', 'Sector:') !!}
                         <br>
                         @foreach ($sectors as $sector)
-                            {!! Form::checkbox('sectors[]', $sector)!!} {{ $sector }} <br>  
+                            {!! Form::checkbox('sectors[]', $sector)!!} {{ $sector }} <br>
                         @endforeach
                     </div>
                     <div class="col-md-6">
@@ -145,16 +145,18 @@
                         @endforeach
 
                     </div>
-                    
+
                 </div>
-                
+
+                <div class="col-lg-12"><div class="pull-right">{!! Recaptcha::render() !!}</div></div>
+
                 <div class="col-md-12 mt20">
                     <a onclick="validateForm()" class="btn btn-primary btn-lg btn-full">
                         Register
                     </a>
                 </div>
-            
-                
+
+
         </div>
         <div class="col-md-6">
             <div class="agreement">
@@ -258,7 +260,7 @@
 
 
                 <h4>12. DISCLAIMER OF WARRANTIES.</h4>
-                <p>WE OFFER NO WARRANTIES NOR MAKE ANY REPRESENTATIONS ABOUT ANY BENEFITS OR OPPORTUNITIES THAT YOU MAY OBTAIN THROUGH THIS WEBSITE.</p> 
+                <p>WE OFFER NO WARRANTIES NOR MAKE ANY REPRESENTATIONS ABOUT ANY BENEFITS OR OPPORTUNITIES THAT YOU MAY OBTAIN THROUGH THIS WEBSITE.</p>
                 <p>WE HEREBY DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NONINFRINGEMENT. THIS WEBSITE IS MADE AVAILABLE TO YOU “AS IS,” WITHOUT ANY WARRANTIES WHATSOEVER ABOUT THE NATURE, CONTENT OR ACCURACY (EITHER WHEN POSTED OR AS A RESULT OF THE PASSAGE OF TIME) OF ANY MATERIAL AT THE WEBSITE, AND WITHOUT ANY REPRESENTATIONS OR GUARANTEES.</p>
 
                 <p>IN ADDITION, WE MAKE NO REPRESENTATIONS, WARRANTIES OR GUARANTEES THAT THIS WEBSITE WILL BE SECURE, ACCESSIBLE CONTINUOUSLY AND WITHOUT INTERRUPTION, OR ERROR FREE.</p>
@@ -266,7 +268,7 @@
                 <p>TO THE EXTENT THAT YOU MIGHT OTHERWISE BELIEVE THAT ANY WARRANTIES, GUARANTEES OR REPRESENTATIONS HAVE BEEN MADE TO YOU, YOU HEREBY AGREE THAT SUCH STATEMENTS, WHETHER MADE ORALLY OR IN WRITING, ARE TO BE CONSTRUED AS MERELY NONBINDING EXPRESSIONS OF POLICY RATHER THAN AFFIRMATIVE REPRESENTATIONS, OBLIGATIONS, GUARANTEES OR WARRANTIES. IN THE EVENT OF ANY CONFLICT BETWEEN THIS SECTION 12 AND OTHER TERMS OR PROVISIONS OF THIS AGREEMENT, THIS SECTION SHALL BE CONSTRUED TO TAKE PRECEDENCE. </p>
 
                 <h4>13. LIMITATION OF LIABILITY.</h4>
-                <p>WE DISCLAIM ALL LIABILITY FOR ANY CONDUCT, ACTS OR OMISSIONS OCCURRING ON OR THROUGH THIS WEBSITE.</p> 
+                <p>WE DISCLAIM ALL LIABILITY FOR ANY CONDUCT, ACTS OR OMISSIONS OCCURRING ON OR THROUGH THIS WEBSITE.</p>
 
                 <p>USERS AGREE TO INDEMNIFY AND HOLD HARMLESS MAGELLAN YATES WITH REGARD TO ANY USER ACTIVITY THAT INVOLVES, INCLUDES, OR IS FACILITATED BY ASSET TV’S PRODUCTS, SERVICES, WEBSITES, DATA, OR ANY OTHER MAGELLAN YATES  RESOURCES. (See INDEMNIFICATION section below) USERS AGREE THAT THEY ASSUME ALL RISKS OF THEIR ACTIVITY WITH REGARD TO MAGELLAN YATES’S PRODUCTS, SERVICES, WEBSITES, DATA, OR ANY OTHER MAGELLAN YATES RESOURCES.</p>
 
@@ -320,10 +322,10 @@
 
             </div>
             <div style="margin-top:20px"><input id="agree" type="checkbox"> I Agree.</div>
-            
+
         </div>
         </form>
-    </div>    
+    </div>
     <div class="mt20"></div>
 </section>
 <script
@@ -333,7 +335,7 @@
 <script type="text/javascript">
 
     function validateForm(){
-        if ($('#agree').is(':checked')) 
+        if ($('#agree').is(':checked'))
             $("#register-form").submit();
         else
             alert('You must agree the terms to continue');
@@ -343,7 +345,7 @@
             $('#agreeModal').modal('show');
         @endif
     });
-   
+
 
 </script>
 

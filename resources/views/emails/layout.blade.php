@@ -71,7 +71,7 @@ $style = [
                     <tr>
                         <td style="{{ $style['email-masthead'] }}">
                             <a style="{{ $fontFamily }} {{ $style['email-masthead_name'] }}" href="{{ url('/') }}" target="_blank">
-                                <img style="width:70px; float:left; padding-left:15px" src="http://www.magyates.com/img/Logo.png">
+                                <img style="width:70px; float:left; padding-left:15px" src="https://www.magyates.com/img/Logo.png">
                                 <div style="float:right; padding-right:15px; font-size:14px; text-align:right">
                                     <span style="font-size:16px">Magyates</span><br>
                                     <span style="font-style:italic; color:#555">Taking Corporate Access into the Digital Age</span><br>
@@ -85,9 +85,9 @@ $style = [
                     <tr>
                         <td style="{{ $style['email-body'] }}" width="100%">
                             <table style="{{ $style['email-body_inner'] }}" align="center" width="570" cellpadding="0" cellspacing="0">
-                                
+
                                     @yield('content')
-                                
+
                             </table>
                         </td>
                     </tr>

@@ -28,7 +28,7 @@
 				<p class="black">Magellan Yates (MY) is the first and only global web-based video platform that delivers a direct connection between the buy-side Investor and companies they invest in, making the "art" of corporate access more efficient.</p>
 			</div>
 		</section>
-		
+
 		<section>
 			<div class="row">
 				<!--<div class="col-xs-12 col-sm-12 col-md-3" style="padding-right:0; height:330px">
@@ -118,11 +118,11 @@
 				<p class="black">Magellan Yates was founded by buy-side professionals with over 30 years of financial service and investing experience in international markets. As fundamental investors, the founders faced big data overkill, which resulted in direct access to company managements becoming the most important tool to make investment decisions. The founders realized that “corporate access” was stuck in the dark ages and have subsequently used bespoke technology to  create a platform to "disrupt" this service.</p>
 			</div>
 		</section>
-		
-		
+
+
 
 		<section class="section-divider divider6" id="contact">
-            
+
 			<div class="container">
                 @if (session('message'))
                 <div class="alert alert-success fade in alert-dismissable" style="margin-top:18px;">
@@ -169,19 +169,16 @@
 						</div>
                         <div class="form-group">
                             <div class="col-lg-12"><div class="pull-right">{!! Recaptcha::render() !!}</div></div>
-                            
                         </div>
-                        
-                        
 						<div class="form-group">
 							<input type="submit" class="btn btn-default" name="submit" value="Send" />
 						</div>
 				</form>
 			</div>
 		</section>
-		
 
-		
+
+
 @endsection
 
-		
+

@@ -42,7 +42,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //$this->middleware('guest');
     }
 
     /**
@@ -72,37 +72,69 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
-            'active' => 1,
+            'active' => 0,
             'user_type_id' => $data['user_type_id'],
             'password' => bcrypt($data['password']),
         ]);
-         
+
     }
-    
-    
+
+
     private function validateToken(Request $request)
     {
         if (session('_token') == $request->get('_token'))
             return true;
         return false;
     }
-    
+
+    private function sendWelcomeMessage($user) {
+        $send = Mail::send(['html' => 'emails.welcome'], [ 'name' => $user->name, 'last_name' => $user->last_name ], function($message) use ($user)
+        {
+            $message->from( 'admin@magyates.com', 'Magyates' );
+            $message->to($user->email, $user->name.' '.$user->password)->subject('Welcome to Magyates.com');
+        });
+    }
+
     public function activate($email, $token)
     {
         $user = User::where('email', $email)->first();
-        if ($user->remember_token == $token){
-            $user->active = 1;
-            $user->save();
-            return Redirect::to('/login-investor')->with('register', 'ok');
+        if ($user) {
+            if ($user->remember_token == $token) {
+                $user->active = 1;
+                $user->save();
+                $this->sendWelcomeMessage($user);
+                echo 'The investor has been activated succesfully. An email has sent to him';
+            } else
+                echo 'Invalid token';
         }
-        return abort('405');
-            
+        else
+            echo 'Investor does not exist';
+
     }
-    
+
+    public function reject($email, $token)
+    {
+        $user = User::where('email', $email)->first();
+        if ($user) {
+            if ($user->remember_token == $token){
+                $user->delete();
+                echo 'The investor has been completly removed from the database';
+            }
+            else
+                echo 'Invalid token';
+        }
+        else
+            echo 'Investor does not exist';
+    }
+
     public function investorRegister(Request $request)
     {
-         
-        if ($this->validateToken($request))
+        $validator = Validator::make($request->all(), [
+            'g-recaptcha-response' => 'required|recaptcha',
+        ]);
+
+        if (!$validator->fails() && $this->validateToken($request))
+        //if ($this->validateToken($request))
         {
             $this->validate($request, [
                 'name' => 'required|string|max:255',
@@ -113,7 +145,7 @@ class RegisterController extends Controller
             ]);
             $data = $request->all();
             $data['user_type_id'] = 3;
-            
+
 
             $user = $this->create($data);
 
@@ -129,22 +161,22 @@ class RegisterController extends Controller
             $user->investor_id = $investor->id;
             $user->remember_token = Session::get('_token');
             $user->save();
-            /*$link = 'https://www.magyates.com/activateAccount/'.$request->get('email').'/'.Session::get('_token');
-            
-            $send = Mail::send(['html' => 'emails.welcome'], [ 'name' => $request->get('name'), 'last_name' => $request->get('last_name'), 'link' => $link ], function($message) use ($request) 
-                {
-                      $message->from( 'info@magyates.com', 'Magyates' );
-                      $message->to($request->get('email'), $request->get('name').' '.$request->get('last_name'))->subject('Welcome to Magyates.com');
+            $activateLink = 'https://www.magyates.com/activateAccount/'.$request->get('email').'/'.Session::get('_token');
+            $rejectLink = 'https://www.magyates.com/rejectAccount/'.$request->get('email').'/'.Session::get('_token');
 
+            $send = Mail::send(['html' => 'emails.aceptation'], [ 'name' => $request->get('name'), 'last_name' => $request->get('last_name'), 'email' => $request->get('email'), 'activateLink' => $activateLink, 'rejectLink' => $rejectLink ], function($message) use ($request)
+                {
+                      $message->from( 'admin@magyates.com', 'Magyates' );
+                      $message->to('thomas.samuelson@icloud.com', $request->get('name').' '.$request->get('last_name'))->subject('New investor registration Magyates.com');
 
                 });
-            */
+
             if ($request->get('company_link') && $request->get('video_link'))
                 return Redirect::to('/company/'.$request->get('company_link').'/'.$request->get('video_link').'/'.$request->get('email'));
             else
                 return Redirect::to('/login-investor')->with('register','ok');
         }
         return Redirect::to('/register-investor');
-        
+
     }
 }

@@ -19,6 +19,7 @@ Route::get('/register-investor', 'WebController@registerInvestor');
 Route::post('contact', 'WebController@contact');
 Route::post('/investor-register', 'Auth\RegisterController@investorRegister');
 Route::get('/activateAccount/{email}/{token}', 'Auth\RegisterController@activate');
+Route::get('/rejectAccount/{email}/{token}', 'Auth\RegisterController@reject');
 Route::get('company/{company_name}/{video_name}/{email}', 'CompanyController@showVideoToInvestor');
 Route::post('company/contact', 'CompanyController@contactCompany');
 
@@ -44,8 +45,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function()
     Route::resource('settings', 'SettingController');
     Route::get('{name}', 'CompanyController@showByName');
     Route::get('{name}/{video_name}', 'CompanyController@showVideo');
-    
-    
+
+
 });
 
 /* INVESTOR */
@@ -59,7 +60,7 @@ Route::group(['middleware' => 'investor', 'prefix' => 'investor'], function()
     Route::get('{name}', 'CompanyController@showByName');
     Route::get('{name}/{video_name}', 'CompanyController@showVideo');
 
-    
+
 });
 
 /* COMPANY */

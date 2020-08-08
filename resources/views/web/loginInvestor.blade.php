@@ -3,12 +3,12 @@
 @section('content')
 <section class="textdivider">
     <div class="bg-wallst">
-        
+
     </div>
     <div class="container text-center mt60">
-         
+
         <div class="col-md-6">
-        
+
             <h1 class="black login">You don't have an account yet?</h1>
             <h2><a href="{{ url('register-investor') }}">Go to registration page</a></h2>
         </div>
@@ -16,9 +16,9 @@
             @if (session('register'))
                 <div class="alert alert-success fade in alert-dismissable" style=" " >
                     <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-                    <strong>Registration succesfully!</strong> Enter your credentials to access to your dashboard.
+                    <strong>Registration succesfully.</strong> For security, the administration will aprove your account and we will let you know by email.
                 </div>
-            @endif 
+            @endif
             <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
 
@@ -74,9 +74,9 @@
             </form>
 
         </div>
-    
-    
-    </div>    
+
+
+    </div>
     <div class="mt20"></div>
 </section>
 

@@ -26,32 +26,32 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
-    
+
+
     public function isAdmin(){
-        
+
         if ($this->user_type_id == 1)
             return true;
         return false;
-        
+
     }
-    
+
     public function isInvestor(){
-        
+
         if ($this->user_type_id == 3)
             return true;
         return false;
-        
+
     }
-    
+
     public function isCompany(){
-        
+
         if ($this->user_type_id == 2)
             return true;
         return false;
-        
+
     }
-    
+
     public function getUserPrefix()
     {
         if ($this->isAdmin())
@@ -61,22 +61,23 @@ class User extends Authenticatable
         if ($this->isCompany())
             return 'company';
     }
-    
+
     public function getImageAttribute($value)
     {
         if ($value == '')
             return 'user.png';
         return $value;
-            
+
     }
-    
+
     public function company()
     {
         return $this->belongsTo('App\Models\Company');
     }
-    
+
     public function investor()
     {
         return $this->belongsTo('App\Models\Investor');
     }
+
 }

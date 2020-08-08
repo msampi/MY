@@ -7,8 +7,7 @@
         <div class="error-content" style="padding-top: 20px;">
           <h3><i class="fa fa-warning text-yellow"></i> Account not activated.</h3>
           <p>
-            You must follow the link that we sent you when you register to activate your account.
-            
+            The administrator will aprove your account shortly.
           </p>
         </div>
       </div>
