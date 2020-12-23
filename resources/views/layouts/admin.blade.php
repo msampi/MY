@@ -31,9 +31,9 @@
 
     <link rel="stylesheet" href="{{ URL::asset('plugins/datatables/dataTables.bootstrap.css') }}">
 
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/admin.css') }}">
 
-    
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -52,7 +52,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>MY</b></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><img class="admin-logo" src="{{ URL::asset('img/Logo.png') }}"><b>Magyates</b></span>
+          <span class="logo-lg"><img class="admin-logo" src="{{ URL::asset('img/Logo500.png') }}"> <b>Magyates</b></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -79,16 +79,16 @@
                     <p>
                     @if (Auth::user())
                       {{ Auth::user()->name }} {{ Auth::user()->last_name }}
-                      
+
                     </p>
                     @endif
                   </li>
 
                   <!-- Menu Footer-->
                   <li class="user-footer">
-                    
+
                       <a href="{{ route('logout') }}" class="btn btn-default btn-flat">Logout</a>
-                    
+
                   </li>
                 </ul>
               </li>
@@ -147,17 +147,17 @@
             <li>
               <a target="_BLANK" href="https://www.magyates.tv/admin">
                 <i class="fa fa-wifi"></i> <span>Live stream</span>
-                
+
               </a>
             </li>
             <li>
               <a href="{!! URL::asset( 'admin/settings' ) !!}">
                 <i class="fa fa-cog"></i> <span>Settings</span>
-                
+
               </a>
             </li>
             @endif
-              
+
             @if (Auth::user()->isInvestor())
                 @foreach ($continents as $continent)
                         <li class="treeview">
@@ -170,7 +170,7 @@
                               @endforeach
                           </ul>
                         </li>
-                    
+
                 @endforeach
             <li>
                 @if (isset(Auth::user()->investor->company))
@@ -178,12 +178,12 @@
                 @else
                     <a target="_BLANK" href="https://www.magyates.tv/meeting/{{ $settings->meeting_room }}">
                 @endif
-                  
+
                 <i class="fa fa-wifi"></i> <span>Live stream</span>
-                  
-                  
-                
-                
+
+
+
+
               </a>
             </li>
             @endif
@@ -250,7 +250,7 @@
 
     <script src="{{ URL::asset('plugins/datatables/jquery.dataTables.js') }}"></script>
     <script src="{{ URL::asset('plugins/datatables/dataTables.bootstrap.js') }}"></script>
-      
+
     <script src="{{ URL::asset('plugins/input-mask/jquery.inputmask.js') }}"></script>
     <script src="{{ URL::asset('plugins/input-mask/jquery.inputmask.date.extensions.js') }}"></script>
     <script src="{{ URL::asset('plugins/input-mask/jquery.inputmask.extensions.js') }}"></script>
@@ -258,14 +258,14 @@
     <script src="{{ URL::asset('plugins/colorpicker/bootstrap-colorpicker.min.js') }}"></script>
     <script src="{{ URL::asset('plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ URL::asset('plugins/uploadPreview/jquery.uploadPreview.min.js') }}"></script>
-      
-    
+
+
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    
-   
+
+
 
     <script>
-        
+
         var BASE_URL = '{!! url('/') !!}';
       $(function () {
 
@@ -288,13 +288,13 @@
 
 
         });
-          
+
         $(".colorpicker").colorpicker();
         $(".datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
         $(".hourmask").inputmask("hh:mm", {"placeholder": "hh:mm"});
-          
 
-          
+
+
       });
     </script>
 </body>

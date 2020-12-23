@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c45d8ab6f0942dc553d180982e570ab0",
+    "content-hash": "7b58bb076e6e351a7849a99ff06b7e96",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -272,58 +272,6 @@
                 "parser"
             ],
             "time": "2017-11-14T20:44:03+00:00"
-        },
-        {
-            "name": "greggilbert/recaptcha",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/greggilbert/recaptcha.git",
-                "reference": "c2ed383785a4fe20467ce470c97c303e5c5b85de"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/greggilbert/recaptcha/zipball/c2ed383785a4fe20467ce470c97c303e5c5b85de",
-                "reference": "c2ed383785a4fe20467ce470c97c303e5c5b85de",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5.1",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.2-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/migrations"
-                ],
-                "psr-4": {
-                    "Greggilbert\\Recaptcha\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Greg Gilbert",
-                    "email": "greg@greg-gilbert.com"
-                }
-            ],
-            "description": "reCAPTCHA Validator for Laravel 5",
-            "homepage": "http://github.com/greggilbert/recaptcha",
-            "keywords": [
-                "captcha",
-                "laravel",
-                "laravel5",
-                "recaptcha"
-            ],
-            "time": "2017-08-31T03:39:47+00:00"
         },
         {
             "name": "infyomlabs/core-templates",
@@ -2472,6 +2420,79 @@
             "time": "2017-11-27T11:13:29+00:00"
         },
         {
+            "name": "timehunter/laravel-google-recaptcha-v3",
+            "version": "v2.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RyanDaDeng/laravel-google-recaptcha-v3.git",
+                "reference": "d05e4400bd7e9891cb7b41cf1c1f8881efc66ecf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RyanDaDeng/laravel-google-recaptcha-v3/zipball/d05e4400bd7e9891cb7b41cf1c1f8881efc66ecf",
+                "reference": "d05e4400bd7e9891cb7b41cf1c1f8881efc66ecf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "~7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "TimeHunter\\LaravelGoogleReCaptchaV3\\Providers\\GoogleReCaptchaV3ServiceProvider"
+                    ],
+                    "aliases": {
+                        "GoogleReCaptchaV3": "TimeHunter\\LaravelGoogleReCaptchaV3\\Facades\\GoogleReCaptchaV3"
+                    }
+                },
+                "branch-alias": {
+                    "dev-master": "3.0.*-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TimeHunter\\LaravelGoogleReCaptchaV3\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Deng",
+                    "email": "ryandadeng@gmail.com",
+                    "homepage": "https://ryandeng.com"
+                }
+            ],
+            "description": "Laravel Package for google reCAPTCHA v3",
+            "homepage": "https://github.com/RyanDaDeng/laravel-google-recaptcha-v3",
+            "keywords": [
+                "Google ReCaptcha",
+                "GoogleReCaptcha",
+                "Laravel reCAPTCHA",
+                "google recaptcha v3",
+                "laravel",
+                "laravel google recaptcha",
+                "laravel google recaptcha v3",
+                "laravel recaptcha v3",
+                "recaptcha",
+                "recaptcha v3",
+                "recaptcha v3 laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/RyanDaDeng/laravel-google-recaptcha-v3/issues",
+                "source": "https://github.com/RyanDaDeng/laravel-google-recaptcha-v3/tree/v2.4.2"
+            },
+            "time": "2020-09-21T07:04:55+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v2.4.0",
             "source": {
@@ -4071,13 +4092,13 @@
         "infyomlabs/core-templates": 20,
         "infyomlabs/laravel-generator": 20,
         "infyomlabs/swagger-generator": 20,
-        "jlapp/swaggervel": 20,
-        "greggilbert/recaptcha": 20
+        "jlapp/swaggervel": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.6.4"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

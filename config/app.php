@@ -163,7 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
-        
+
 
         /*
          * Package Service Providers...
@@ -183,8 +183,7 @@ return [
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         \InfyOm\CoreTemplates\CoreTemplatesServiceProvider::class,
-        Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
-
+        TimeHunter\LaravelGoogleReCaptchaV3\Providers\GoogleReCaptchaV3ServiceProvider::class
     ],
 
     /*
@@ -236,8 +235,7 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
-        'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
-
+        'GoogleReCaptchaV3'=> TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3::class
     ],
 
 ];

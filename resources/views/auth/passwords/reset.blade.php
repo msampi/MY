@@ -1,16 +1,17 @@
 @extends('layouts.web')
 
 @section('content')
-<section class="textdivider">
-    <div class="container text-center mt20">
+<section class="section">
+    <div class="container text-center mt-2">
         <h1 class="black">Password Reset</h1>
          @if (session('status'))
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
         @endif
-        
-        <form class="form-horizontal reset-password" role="form" method="POST" action="{{ route('password.request') }}">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 offset-md-3">
+                <form class="form-horizontal reset-password" role="form" method="POST" action="{{ route('password.request') }}">
                         {{ csrf_field() }}
 
                         <input type="hidden" name="token" value="{{ $token }}">
@@ -18,7 +19,7 @@
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
@@ -32,7 +33,7 @@
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -45,7 +46,7 @@
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
 
                                 @if ($errors->has('password_confirmation'))
@@ -57,13 +58,15 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-6 offset-md-3">
                                 <button type="submit" class="btn btn-primary">
                                     Reset Password
                                 </button>
                             </div>
                         </div>
                     </form>
+            </div>
+        </div>
     </div>
 </section>
 

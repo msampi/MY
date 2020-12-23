@@ -46,7 +46,6 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function()
     Route::get('{name}', 'CompanyController@showByName');
     Route::get('{name}/{video_name}', 'CompanyController@showVideo');
 
-
 });
 
 /* INVESTOR */

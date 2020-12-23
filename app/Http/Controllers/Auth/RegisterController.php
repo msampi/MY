@@ -129,12 +129,7 @@ class RegisterController extends Controller
 
     public function investorRegister(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'g-recaptcha-response' => 'required|recaptcha',
-        ]);
-
-        if (!$validator->fails() && $this->validateToken($request))
-        //if ($this->validateToken($request))
+        if ($this->validateToken($request))
         {
             $this->validate($request, [
                 'name' => 'required|string|max:255',

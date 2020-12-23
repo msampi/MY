@@ -11,16 +11,20 @@
     <title>Magyates - Taking Corporate Access into the Digital Age</title>
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ URL::asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="login-page">
-        <div class="col-md-2 col-md-offset-5 mt30">
-            <img class="img-responsive" src="{{ URL::asset('img/Logo.png') }}">
-        
+        <div class="row">
+            <div class="col-md-3 col-md-offset-5 margin-top-login text-center">
+                <span class="logo-lg"><img class="admin-logo" src="{{ URL::asset('img/logo500.png') }}"></span>
+            </div>
         </div>
-        
-        @yield('content')
+        <div class="row" style="margin-top: 30px">
+            @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->
