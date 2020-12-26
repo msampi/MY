@@ -10,22 +10,27 @@ use App\Models\Sector;
 use App\Models\Place;
 use Redirect;
 use Validator;
+use GoogleReCaptchaV3;
 
 class WebController extends Controller
 {
 
-    private function validateToken(Request $request)
+    private function validToken(Request $request)
     {
-        if (session('_token') == $request->get('_token'))
-            return true;
-        return false;
+        return (session('_token') == $request->get('_token'));
+    }
+
+    private function validRecaptcha(Request $request)
+    {
+        return GoogleReCaptchaV3::verifyResponse(
+            $request->input('g-recaptcha-response'),
+            $request->getClientIp()
+        )->isSuccess();
     }
 
     public function contact(Request $request)
     {
-        if ($this->validateToken($request)) {
-
-
+        if ( $this->validRecaptcha($request) && $this->validToken($request) ) {
             $send = Mail::send(['html' => 'emails.message'], [ 'msg' => $request->get('message'), 'name' => $request->get('name'), 'email' => $request->get('email'), 'link' => '' ], function($message) use ($request)
                 {
                       $message->from( 'noreply@magyates.com', 'Magyates' );
@@ -33,7 +38,7 @@ class WebController extends Controller
 
                 });
             return Redirect::to('/#contact')->with('message','ok');
-        }
+      }
     }
 
     public function investor()

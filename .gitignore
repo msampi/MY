@@ -1,3 +1,5 @@
 .env
+.env_local
 vendor
 public
+/config/googlerecaptchav3.php

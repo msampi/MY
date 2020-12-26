@@ -12,6 +12,7 @@ use Redirect;
 use Session;
 use Mail;
 use Db;
+use GoogleReCaptchaV3;
 
 class RegisterController extends Controller
 {
@@ -127,9 +128,17 @@ class RegisterController extends Controller
             echo 'Investor does not exist';
     }
 
+    private function validRecaptcha(Request $request)
+    {
+        return GoogleReCaptchaV3::verifyResponse(
+            $request->input('g-recaptcha-response'),
+            $request->getClientIp()
+        )->isSuccess();
+    }
+
     public function investorRegister(Request $request)
     {
-        if ($this->validateToken($request))
+        if ($this->validRecaptcha($request) && $this->validateToken($request))
         {
             $this->validate($request, [
                 'name' => 'required|string|max:255',
