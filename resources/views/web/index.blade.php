@@ -62,7 +62,7 @@
             </div>
             <div class="col-lg-6 bg-red">
                 <div class="container m-3 p-5">
-                    <h3 class="text-white font-weight-bold">7 reasons why IRs should adapt video marketing </h3>
+                    <h3 class="text-white font-weight-bold">7 reasons why IR<span style="text-transform: lowercase">s</span> should adapt video marketing </h3>
                     <ul class="text-white p-0">
                         <li>Converting new investors: Product video can increase sales conversions by 80%.  Correlation for corporate videos, increase transparency and disclosure</li>
                         <li>ROI is high: over 80% of companies that use video report good ROI.  Technology has lowered the cost of video production which can increase corp profile</li>
@@ -329,7 +329,6 @@
         <div class="row pt-5 mt-5 mb-4">
             <div class="col text-center appear-animation" data-appear-animation="fadeInUpShorter">
                 <h2 class="font-weight-bold mb-1">Team</h2>
-                <p>LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT</p>
             </div>
         </div>
         <div class="row pb-2 mb-2 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
@@ -344,7 +343,7 @@
 									<h3 class="font-weight-extra-bold text-color-dark text-4 line-height-1 mt-3 mb-0">Thomas Samuelson</h3>
 									<span class="text-2 mb-0">FOUNDER</span>
 									<span class="thumb-info-social-icons">
-										<a href="http://www.linkedin.com"><i class="fab fa-linkedin-in"></i><span>Linkedin</span></a>
+										<a href="https://www.linkedin.com/in/magellanyates/" target="_blank"><i class="fab fa-linkedin-in"></i><span>Linkedin</span></a>
 									</span>
 								</span>
 							</span>

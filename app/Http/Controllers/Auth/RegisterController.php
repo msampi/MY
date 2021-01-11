@@ -170,7 +170,7 @@ class RegisterController extends Controller
 
             $send = Mail::send(['html' => 'emails.aceptation'], [ 'name' => $request->get('name'), 'last_name' => $request->get('last_name'), 'email' => $request->get('email'), 'activateLink' => $activateLink, 'rejectLink' => $rejectLink ], function($message) use ($request)
                 {
-                      $message->from( 'admin@magyates.com', 'Magyates' );
+                      $message->from( 'info@magyates.com', 'Magyates' );
                       $message->to('thomas.samuelson@icloud.com', $request->get('name').' '.$request->get('last_name'))->subject('New investor registration Magyates.com');
 
                 });

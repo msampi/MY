@@ -215,6 +215,11 @@
 <script src="{{ URL::asset('js/theme.init.js') }}"></script>
 
 <script>
+	$("#video-modal").on('hidden.bs.modal', function (e) {
+		var div = document.getElementById("video-modal");
+		var iframe = div.getElementsByTagName("iframe")[0].contentWindow;
+		iframe.postMessage('{"method":"pause"}', '*');
+	});
 
 	function showServiceImage(number) {
 		switch (number) {

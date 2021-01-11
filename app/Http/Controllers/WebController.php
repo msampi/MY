@@ -33,7 +33,7 @@ class WebController extends Controller
         if ( $this->validRecaptcha($request) && $this->validToken($request) ) {
             $send = Mail::send(['html' => 'emails.message'], [ 'msg' => $request->get('message'), 'name' => $request->get('name'), 'email' => $request->get('email'), 'link' => '' ], function($message) use ($request)
                 {
-                      $message->from( 'noreply@magyates.com', 'Magyates' );
+                      $message->from( 'info@magyates.com', 'Magyates' );
                       $message->to('thomas.samuelson@icloud.com', 'Thomas Samuelson')->subject('New message from contact form');
 
                 });
