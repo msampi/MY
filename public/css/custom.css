@@ -1,0 +1,210 @@
+/* Add here all your CSS customizations */
+.slider-container {
+    height: 100vh;
+}
+
+.bg-red {
+    background-color: rgb(203,58,57);
+}
+
+.bg-blue {
+    background-color: rgb(74,114,152);
+}
+
+.about-h2 {
+    font-size: 1.5em;
+    line-height: 26px;
+}
+
+#video-modal .modal-body {
+    padding: 0;
+}
+
+#video-modal .modal-header {
+    padding: 0;
+}
+
+#video-modal .modal-header .close {
+    padding-right: 20px;
+}
+
+.video-iframe {
+    width: 100%;
+    min-height: 450px;
+    max-height: 550px;
+    border: none;
+}
+
+.thumb-info .thumb-info-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.access-menu-link {
+    position: absolute !important;
+    top: 10px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 600;
+}
+
+.access-menu-link  .main-link {
+    color: rgb(203,58,57) !important;
+    min-height: 20px !important;
+    font-weight: bold;
+}
+
+.access-menu-link .dropdown-menu {
+    border-radius: 0;
+}
+
+.access-menu-link .dropdown-menu a{
+    font-size: 14px;
+    color: #888888;
+    font-weight: 700;
+}
+
+.access-menu-link  .main-link:hover {
+    text-decoration: none;
+}
+
+.access-menu-icon {
+    margin-right: 5px;
+}
+
+#clients {
+    background-image: url('../img/slides/slide-santiago.jpg');
+    background-size: cover;
+    background-position: center;"
+}
+
+#services {
+    min-height: 720px;
+    transition: background 1s ease;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/slides/slide-china.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#contact {
+    background:  url('../img/slides/slide-china.jpg');
+    background-size: cover;
+    background-position: 0% 50%;
+
+}
+
+.contact-box {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+}
+
+.services-back-button {
+    margin-left: 10px;
+    cursor: pointer;
+    display: none;
+    margin-top: -40px;
+}
+
+.bg-crowd{
+    background-image: url(../img/crowd.jpg);
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: inset 200px 200px 300px 200px rgba(0,0,0,0.48);
+    -moz-box-shadow: inset 200px 200px 300px 200px rgba(0,0,0,0.48);
+    box-shadow: inset 200px 200px 300px 200px rgba(0,0,0,0.48);
+    min-height: 500px;
+}
+.bg-wallst{
+    background-image: url(../img/wallst.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 30vh;
+    background-repeat: no-repeat;
+    padding: 150px 20px 0 20px;
+}
+
+.bg-china{
+    background-image: url(../img/china_great_wall_of_china_sky.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 15vh;
+    background-repeat: no-repeat;
+    padding: 150px 20px 0 20px;
+}
+
+h1.sorry-message{
+    font-family: 'Roboto', sans-serif !important;
+    color:#fff;
+    font-size: 55px;
+    font-weight: bold !important;
+    padding-top: 25vh;
+}
+
+.control-label-form {
+    margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.text-yellow {color: darkorange}
+
+.agreement {
+    height: 480px;
+    padding:10px;
+    background-color: rgba(0, 0, 0, 0.04);
+    overflow-y: scroll;
+    text-align: justify;
+    font-family: sans-serif
+}
+.help-block {
+    color: #c90000;
+    font-size: 11px;
+}
+
+#login-page {
+    background: url(../img/mountains-city.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+}
+
+#login-page img {
+    width: 80px;
+}
+
+#login-page label {
+    color: white;
+}
+
+.logo-lg span{
+    font-size: 48px;
+    color: white;
+    font-weight: bold;
+}
+.margin-top-login{
+    margin-top: 80px;
+}
+
+/*RESPONSIVE*/
+
+
+@media (max-width: 1200px) {
+    #header .header-nav-main nav > ul > li > a {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 992px) {
+    .feature-box {
+        margin-bottom: 10px;
+    }
+
+    .access-menu-link {
+       top:0;
+        right: 15px;
+    }
+
+}
